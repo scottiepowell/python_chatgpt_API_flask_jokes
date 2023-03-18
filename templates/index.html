@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<form action="/result" method="post">
+    <label for="professional">Professional:</label>
+    <select name="professional" id="professional">
+        <option value="accountant">accountant</option>
+        <option value="lawyer">Lawyer</option>
+        <option value="financial analyst">financial analyst</option>
+        <option value="marketing manager">marketing manager</option>
+        <option value="human resouce specialist">human resouce specialist</option>
+        <option value="software_developer">software_developer</option>
+        <option value="data_scientist">data_scientist</option>
+        <option value="project_manager">project_manager</option>
+        <option value="pharmacist">pharmacist</option>
+        <option value="architect">architect</option>
+        <option value="banker">Banker</option>
+    </select>
+    <br><br>
+    <label for="second_professional">Second Professional:</label>
+    <select name="second_professional" id="second_professional">
+        <option value="electrician">electrician</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Carpenter">Carpenter</option>
+        <option value="Welder">Welder</option>
+        <option value="Construction_Laborer">Construction Laborer</option>
+        <option value="Automotive_Mechanic">Automotive Mechanic</option>
+        <option value="Farmer">Farmer</option>
+        <option value="truck_driver">Truck Driver</option>
+        <option value="Pipefitter">Pipefitter</option>
+        <option value="HVAC_Technician">HVAC Technician</option>
+    </select>
+    <br><br>
+    <label for="third_professional">Third Professional:</label>
+    <select name="third_professional" id="third_professional">
+        <option value="google_employee">google employee</option>
+        <option value="Graphic Designer">Graphic Designer</option>
+        <option value="soldier">Soldier</option>
+        <option value="Veterinarian">Veterinarian</option>
+        <option value="Dental Hygienist">Dental Hygienist</option>
+        <option value="Police_Officer">Police Officer</option>
+        <option value="Firefighter">Firefighter</option>
+        <option value="Chef">Chef</option>
+        <option value="Physical_Therapist">Physical Therapist</option>
+        <!-- Add more options as needed -->
+    </select>
+    <br><br>    
+    <label for="verb">Verb:</label>
+    <select name="verb" id="verb">
+        <option value="running">Running</option>
+        <option value="Jumping">Jumping</option>
+        <option value="Swimming">Swimming</option>
+        <option value="Dancing">Dancing</option>
+        <option value="Cooking">Cooking</option>
+        <option value="Painting">Painting</option>
+        <option value="Singing">Singing</option>
+        <option value="Writing">Writing</option>
+        <option value="Reading">Reading</option>
+        <option value="Hiking">Hiking</option>
+        <option value="Exercising">Exercising</option>
+        <option value="Gardening">Gardening</option>
+        <option value="Traveling">Traveling</option>
+        <option value="Climbing">Climbing</option>
+        <option value="Driving">Driving</option>
+        <option value="Building">Building</option>
+        <option value="Teaching">Teaching</option>
+        <option value="Fishing">Fishing</option>
+        <option value="Exploring">Exploring</option>
+        <option value="Laughing">Laughing</option>
+        <!-- Add more options as needed -->
+    </select>
+    <br><br>    
+    <label for="place">Place:</label>
+    <select name="place" id="place">
+        <option value="Library">Library</option>
+        <option value="Beach">Beach</option>
+        <option value="Park">Park</option>
+        <option value="Shopping_mall">Shopping mall</option>
+        <option value="Museum">Museum</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Gym">Gym</option>
+        <option value="Movie_theater">Movie theater</option>
+        <option value="Amusement_park">Amusement park</option>
+        <option value="Hospital">Hospital</option>
+        <option value="School">School</option>
+        <option value="Forest">Forest</option>
+        <!-- Add more options as needed -->
+    </select>
+    <br><br>
+    <label for="filename">Filename:</label>
+    <input type="text" name="filename" id="filename">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{{ url_for('recent_calls') }}">View recent queries</a>
+
+{% endblock %}
+
+
+
+
+
+

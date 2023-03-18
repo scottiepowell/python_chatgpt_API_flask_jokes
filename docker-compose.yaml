@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  joke_app:
+    build: .
+    image: joke_app:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+    command: ["flask", "run"]
