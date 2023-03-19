@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  joke_app:
+    build: .
+    image: joke_app:latest
+    expose:
+      - "5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - VIRTUAL_HOST=badjokes.roadmaps.link
+      - LETSENCRYPT_HOST=badjokes.roadmaps.link
+      - LETSENCRYPT_EMAIL=scottiepowell@gmail.com
+    command: ["flask", "run"]
+
+  nginx_proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "8282:80"
+      - "8443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    depends_on:
+      - nginx_proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+
+volumes:
+  certs:
+  vhostd:
+  html:
